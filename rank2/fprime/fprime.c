@@ -6,7 +6,7 @@
 /*   By: vde-frei vde-frei@student.42sp.org.br      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 21:41:14 by vde-frei          #+#    #+#             */
-/*   Updated: 2023/09/05 21:41:14 by vde-frei         ###   ########.fr       */
+/*   Updated: 2023/09/06 00:14:00 by vde-frei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ int main(int argc, char *argv[])
 	{
 		number = malloc(sizeof(int) * 1);
 		*number = atoi(argv[1]);
-		if (!is_prime(*number))
+		if (*number < 0)
+		{
+			printf("\n");
+			return (0);
+		}
+		else if (!is_prime(*number))
 		{
 			printf("%d\n", *number);
 			return (0);
