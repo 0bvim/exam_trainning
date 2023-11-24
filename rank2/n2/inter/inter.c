@@ -2,17 +2,20 @@
 
 void	inter(char *s1, char *s2)
 {
-	int	ascii[128];
+	int	ascii[128] = {0};
+	int	ascii2[128] = {0};
 	int i = 0;
-	while (i < 128)
+
+	while (*s2 && s2[i])
 	{
-		ascii[i] = 0;
+		if (ascii2[(int)s2[i]] == 0)
+			ascii2[(int)s2[i]] = 1;
 		i++;
 	}
 	i = 0;
 	while (*s1 && s1[i])
 	{
-		if (ascii[(int)s1[i]] == 0)
+		if ((ascii[(int)s1[i]] == 0) && (ascii2[(int)s1[i]] == 1))
 		{
 			write(1, &s1[i], 1);
 			ascii[(int)s1[i]] = 1;
