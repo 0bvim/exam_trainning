@@ -10,7 +10,7 @@ protected:
 
 public:
   ASpell(const std::string &newName, const std::string &newEffect);
-  ~ASpell();
+  virtual ~ASpell();
   ASpell(const ASpell &rhs);
   ASpell &operator=(const ASpell &rhs);
 

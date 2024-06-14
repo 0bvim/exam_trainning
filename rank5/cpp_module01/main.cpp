@@ -1,39 +1,23 @@
-#include "Warlock.hpp"
-#include <cstdlib>
+#include "ASpell.hpp"
+#include "ATarget.hpp"
 #include <iostream>
 
 int main() {
-  {
-    std::cout << "My MAIN\n";
-    Warlock const richard("Richard", "Mistress of Magma");
-    richard.introduce();
-    std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
+  // Create an ASpell object
+  ASpell fireball("Fireball", "burnt badly");
 
-    Warlock *jack = new Warlock("Jack", "the Long");
-    jack->introduce();
-    jack->setTitle("the Mighty");
-    jack->introduce();
+  // Create an ATarget object
+  ATarget dummy("Inanimate Object");
 
-    delete jack;
-  }
-  {
-    std::cout << "\nTESTER MAIN\n";
+  // Test getHitBySpell with the ASpell object
+  dummy.getHitBySpell(fireball);
 
-    std::string lol;
-    Warlock const richard("Richard", "Mistress of Magma");
-    richard.introduce();
-    std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
+  // Create another ATarget object (copy constructor)
+  ATarget anotherDummy(dummy);
 
-    Warlock *jack = new Warlock("Jack", "the Long");
-    jack->introduce();
-    jack->setTitle("the Mighty");
-    jack->introduce();
+  // Test getHitBySpell with the copied target
+  anotherDummy.getHitBySpell(fireball);
 
-    if (jack->getName() == "Jack")
-      std::cout << "getName is const" << std::endl;
-
-    delete jack;
-  }
-
-  return (0);
+  return 0;
 }
+

@@ -11,12 +11,12 @@ private:
 
 public:
   ATarget(const std::string &newType);
-  ~ATarget();
+  virtual ~ATarget();
   ATarget(const ATarget &rhs);
   ATarget &operator=(const ATarget &rhs);
 
   std::string const &getType();
-  void getHitBySpell(const ASpell &spell);
+  void getHitBySpell(ASpell const &spell) const;
 
   virtual ATarget clone() const = 0;
 };
