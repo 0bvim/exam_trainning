@@ -5,21 +5,21 @@
 
 class Warlock {
 private:
-    std::string name;
-    std::string title;
-    Warlock();
-    Warlock &operator=(const Warlock &rhs);
-    Warlock(const Warlock &rhs);
+  std::string name;
+  std::string title;
+  Warlock();
+  Warlock &operator=(const Warlock &rhs);
+  Warlock(const Warlock &rhs);
 
 public:
-    Warlock(const std::string &newName, const std::string &newTitle);
-    ~Warlock();
+  Warlock(const std::string &newName, const std::string &newTitle);
+  ~Warlock();
 
-    const std::string &getName() const;
-    const std::string &getTitle() const;
+  const std::string &getName() const;
+  const std::string &getTitle() const;
 
-    void setTitle(const std::string &newTitle);
-    void introduce() const;
+  void setTitle(const std::string &newTitle);
+  void introduce() const;
 };
 
 #endif
