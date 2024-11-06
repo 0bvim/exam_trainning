@@ -1,39 +1,17 @@
 #include "Warlock.hpp"
-#include <cstdlib>
-#include <iostream>
 
-int main() {
-  {
-    std::cout << "My MAIN\n";
-    Warlock const richard("Richard", "Mistress of Magma");
-    richard.introduce();
-    std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
+int main()
+{
+	Warlock const richard("Richard", "Mistress of Magma");
+	richard.introduce();
+	std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
 
-    Warlock *jack = new Warlock("Jack", "the Long");
-    jack->introduce();
-    jack->setTitle("the Mighty");
-    jack->introduce();
+	Warlock* jack = new Warlock("Jack", "the Long");
+	jack->introduce();
+	jack->setTitle("the Mighty");
+	jack->introduce();
 
-    delete jack;
-  }
-  {
-    std::cout << "\nTESTER MAIN\n";
+	delete jack;
 
-    std::string lol;
-    Warlock const richard("Richard", "Mistress of Magma");
-    richard.introduce();
-    std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
-
-    Warlock *jack = new Warlock("Jack", "the Long");
-    jack->introduce();
-    jack->setTitle("the Mighty");
-    jack->introduce();
-
-    if (jack->getName() == "Jack")
-      std::cout << "getName is const" << std::endl;
-
-    delete jack;
-  }
-
-  return (0);
+	return (0);
 }
