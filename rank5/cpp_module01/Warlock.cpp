@@ -1,37 +1,33 @@
 #include "Warlock.hpp"
-#include <cstdlib>
-#include <iostream>
 
-Warlock::Warlock(const std::string &newName, const std::string &newTitle)
-    : name(newName), title(newTitle) {
-  if (name.empty() || title.empty()) {
-    std::cerr << "Sorry, you can't instatiate with empty params" << std::endl;
-    exit(1);
-  }
-  std::cout << name << ": This looks like another boring day." << std::endl;
+Warlock::Warlock(){}
+
+Warlock::~Warlock(){
+	std::cout << _name << ": My job here is done!" << std::endl;
 }
 
-Warlock::~Warlock() {
-  std::cout << name << ": My job here is done!" << std::endl;
+Warlock::Warlock(std::string const &name, std::string const &title) : _name(name), _title(title) {
+	std::cout << _name << ": This looks like another boring day." << std::endl;
 }
 
-Warlock &Warlock::operator=(const Warlock &rhs) {
-  if (this != &rhs) {
-    this->name = rhs.name;
-    this->title = rhs.title;
-  }
-  return *this;
+std::string const &Warlock::getName() const { return _name; }
+
+std::string const &Warlock::getTitle() const { return _title; }
+
+void Warlock::setTitle(std::string const &newTitle) { _title = newTitle; }
+
+Warlock::Warlock(Warlock const &rhs) {
+	*this = rhs;
 }
 
-Warlock::Warlock(const Warlock &rhs) { *this = rhs; }
-
-const std::string &Warlock::getName() const { return this->name; }
-
-const std::string &Warlock::getTitle() const { return this->title; }
-
-void Warlock::setTitle(const std::string &newTitle) { this->title = newTitle; }
+Warlock &Warlock::operator=(Warlock const &rhs) {
+	if (this != &rhs) {
+		this->_name = rhs._name;
+		this->_title = rhs._title;
+	}
+	return *this;
+}
 
 void Warlock::introduce() const {
-  std::cout << this->name << ": I am " << this->name << ", " << this->title
-            << "!" << std::endl;
+	std::cout << _name << ": I am " << _name << ", " << _title << "!" << std::endl;
 }
