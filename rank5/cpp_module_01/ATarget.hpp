@@ -9,11 +9,11 @@ class ATarget {
 
 protected:
     std::string type;
+
+public:
     ATarget();
     ATarget(const ATarget&);
     ATarget &operator=(const ATarget&);
-
-public:
     ATarget(const std::string &);
     virtual ~ATarget();
 
