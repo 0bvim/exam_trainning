@@ -8,6 +8,20 @@ ATarget::~ATarget() {
 
 }
 
+ATarget::ATarget() {}
+
+ATarget::ATarget(const ATarget &c) {
+    *this = c;
+}
+
+ATarget &operator=(const ATarget &c) {
+    if (*this != c) {
+        this->type = c.getType();
+    }
+    
+    return *this;
+}
+
 const std::string &ATarget::getType() const {
     return type;
 }
