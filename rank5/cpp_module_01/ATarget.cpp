@@ -14,8 +14,8 @@ ATarget::ATarget(const ATarget &c) {
     *this = c;
 }
 
-ATarget &operator=(const ATarget &c) {
-    if (*this != c) {
+ATarget & ATarget::operator=(const ATarget &c) {
+    if (this != &c) {
         this->type = c.getType();
     }
     
